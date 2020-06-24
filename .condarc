@@ -1,0 +1,4 @@
+channels:
+  - intel
+  - conda-forge
+  - defaults
