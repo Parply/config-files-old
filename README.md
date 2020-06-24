@@ -1,2 +1,2 @@
 # config-files
-linux terminal config files and installer
+Linux terminal config files and installer
