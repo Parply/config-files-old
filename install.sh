@@ -42,9 +42,11 @@ drawline
 chsh -s /usr/bin/zsh root
 
 cd $PWD/.. 
-sudo -u $(whoami) wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+curl -Lo $PWD/install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+sed 's/~/$PWD/g' $PWD/install.sh > $PWD/install.sh
+$PWD/install.sh
 cp $PWD/.oh-my-zsh/templates/zshrc.zsh-template $PWD/.zshrc
-source $PWD/.zshrc
+#source $PWD/.zshrc
 
 drawline
 tput setaf 6;echo "Installing Syntax Highlighting and Autosuggestions"
