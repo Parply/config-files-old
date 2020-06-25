@@ -2,7 +2,7 @@
 shopt -s expand_aliases
 
 
-alias drawline='tput setaf 2; printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " -; tput setaf 7'
+alias drawline='tput setaf 2; printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " - ;tput setaf 7'
 
 drawline
 tput setaf 6;echo "Starting Instillation of Terminal..."
@@ -12,8 +12,12 @@ drawline
 tput setaf 6;echo "Adding Progress Bar and Colours to apt"
 drawline
 
-cp ~/99progressbar  /etc/apt/apt.conf.d
+cp ~/config-files/99progressbar  /etc/apt/apt.conf.d
 chmod 644 /etc/apt/apt.conf.d/99progressbar
+
+drawline
+tput setaf 6;echo "Performing update and upgrade"
+drawline
 
 apt update -y && apt upgrade -y
 
@@ -52,8 +56,8 @@ drawline
 tput setaf 6;echo "Changing Default Font of Tilix to Fira Conda Retina and Applying Transparency"
 drawline
 
-dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)font/" 'Fira Coda weight=453 12'
-dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)background-transparency-percent/" 21
+dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)font" 'Fira Coda weight=453 12'
+dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)background-transparency-percent" 21
 
 drawline
 tput setaf 6;echo "Installing Powerline Theme (Powerlevel10k)"
