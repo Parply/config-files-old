@@ -41,8 +41,8 @@ drawline
 
 chsh -s /usr/bin/zsh root
 
-wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-cp $PWD/.oh-my-zsh/templates/zshrc.zsh-template $PWD/../.zshrc
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O $PWD/.. | zsh
+cp $PWD/../.oh-my-zsh/templates/zshrc.zsh-template $PWD/../.zshrc
 source $PWD/../.zshrc
 
 drawline
