@@ -2,7 +2,7 @@
 shopt -s expand_aliases
 
 
-USERINVOKING = $(who|awk '{print $1})
+USERINVOKING = $(who|awk '{print $1}')
 
 alias drawline='tput setaf 2; printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " - ;tput setaf 7'
 
