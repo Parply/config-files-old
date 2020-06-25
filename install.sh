@@ -40,6 +40,7 @@ tput setaf 6;echo "Setting Default Shell to Z-Shell and Installing Oh My Zsh"
 drawline
 
 chsh -s /usr/bin/zsh root
+chsh -s /usr/bin/zsh $(whoami)
 
 cd $PWD/.. 
 curl -Lo $PWD/install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
