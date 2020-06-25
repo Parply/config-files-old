@@ -2,6 +2,8 @@
 shopt -s expand_aliases
 
 
+USERINVOKING = $(who|awk '{print $1})
+
 alias drawline='tput setaf 2; printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " - ;tput setaf 7'
 
 drawline
@@ -40,7 +42,7 @@ tput setaf 6;echo "Setting Default Shell to Z-Shell and Installing Oh My Zsh"
 drawline
 
 chsh -s /usr/bin/zsh root
-chsh -s /usr/bin/zsh $LOGNAME
+chsh -s /usr/bin/zsh $USERINVOKING
 
 cd $PWD/.. 
 curl -Lo $PWD/install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
@@ -103,8 +105,8 @@ drawline
 cd $PWD/config-files
 
 for i in $(ls .[!.^g]*); do
-    sed -i 's@alexander@'"$LOGNAME"'@g' $i
-    sed -i 's@~@'"/home/$LOGNAME"'@g' $i
+    sed -i 's@alexander@'"$USERINVOKING"'@g' $i
+    sed -i 's@~@'"/home/$USERINVOKING"'@g' $i
 done   
 
 
