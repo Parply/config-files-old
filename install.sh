@@ -44,7 +44,7 @@ chsh -s /usr/bin/zsh root
 cd $PWD/.. 
 curl -Lo $PWD/install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sed 's/~/$PWD/g' $PWD/install.sh > $PWD/install.sh
-$PWD/install.sh
+sh $PWD/install.sh
 cp $PWD/.oh-my-zsh/templates/zshrc.zsh-template $PWD/.zshrc
 #source $PWD/.zshrc
 
