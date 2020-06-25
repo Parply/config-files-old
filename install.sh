@@ -33,7 +33,7 @@ tput setaf 6;echo "Installing Anaconda"
 drawline
 
 wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh -O $PWD/../anaconda.sh
-bash $PWD/anaconda.sh -b -p $PWD/../.anaconda
+bash $PWD/../anaconda.sh -b -p $PWD/../.anaconda
 
 drawline
 tput setaf 6;echo "Setting Default Shell to Z-Shell and Installing Oh My Zsh"
