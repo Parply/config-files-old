@@ -45,7 +45,7 @@ chsh -s /usr/bin/zsh $LOGNAME
 cd $PWD/.. 
 curl -Lo $PWD/install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sed -i's@~@'"$PWD"'@g' $PWD/install.sh 
-sh $PWD/install.sh
+zsh $PWD/install.sh
 #cp $PWD/.oh-my-zsh/templates/zshrc.zsh-template $PWD/.zshrc
 #source $PWD/.zshrc
 
@@ -63,8 +63,8 @@ drawline
 #dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)font" 'Fira Coda weight=453 12'
 #dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)background-transparency-percent" 21
 
-dconf load /org/gnome/terminal/ < gnome-terminal.conf
-dconf load /com/gexpert/ < tilix-terminal.conf
+dconf load /org/gnome/terminal/ < config-files/gnome-terminal.conf
+dconf load /com/gexpert/ < config-files/tilix-terminal.conf
 
 
 drawline
