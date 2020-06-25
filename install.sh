@@ -2,7 +2,7 @@
 shopt -s expand_aliases
 
 
-alias drawline='tput setaf 2; printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " -; tput setaf 0'
+alias drawline='tput setaf 2; printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " -; tput setaf 7'
 
 drawline
 tput setaf 6;echo "Starting Instillation of Terminal..."
