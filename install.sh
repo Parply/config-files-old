@@ -1,9 +1,8 @@
 #!/usr/bin/bash
+shopt -s expand_aliases
 
 
-drawline() {
-    'tput setaf 2; printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " -'
-} 
+alias drawline='tput setaf 2; printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " -'
 
 drawline
 tput setaf 6;echo "Starting Instillation of Terminal..."
