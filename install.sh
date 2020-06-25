@@ -32,7 +32,7 @@ drawline
 tput setaf 6;echo "Installing Anaconda"
 drawline
 
-https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh -O $PWD/../anaconda.sh
+wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh -O $PWD/../anaconda.sh
 bash $PWD/../anaconda.sh -b -p $PWD/../.anaconda
 
 drawline
@@ -42,7 +42,7 @@ drawline
 chsh -s /usr/bin/zsh root
 
 cd $PWD/.. 
--u $(whoami) wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+sudo -u $(whoami) wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 cp $PWD/.oh-my-zsh/templates/zshrc.zsh-template $PWD/.zshrc
 source $PWD/.zshrc
 
