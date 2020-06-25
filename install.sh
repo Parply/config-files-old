@@ -22,10 +22,10 @@ drawline
 apt update -y && apt upgrade -y
 
 drawline
-tput setaf 6;echo "Installing Required Packages and Adding Git Colours"; echo "openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby zsh python3 python3-pip python3-dev" 
+tput setaf 6;echo "Installing Required Packages and Adding Git Colours"; echo "openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev" 
 drawline
 
-apt install -y openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby zsh python3 python3-pip python3-dev
+apt install -y openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev
 git config --global color.ui auto
 
 drawline
