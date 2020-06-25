@@ -52,8 +52,8 @@ drawline
 tput setaf 6;echo "Changing Default Font of Tilix to Fira Conda Retina and Applying Transparency"
 drawline
 
-dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)font" 'Fira Coda weight=453 12'
-dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)background-transparency-percent" 21
+dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)font/" 'Fira Coda weight=453 12'
+dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)background-transparency-percent/" 21
 
 drawline
 tput setaf 6;echo "Installing Powerline Theme (Powerlevel10k)"
