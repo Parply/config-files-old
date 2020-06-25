@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 shopt -s expand_aliases
 
-
-USERINVOKING = $(who|awk '{print $1}')
-
+cd ..
+USERINVOKING = $(basename $PWD)
+cd config-files
 alias drawline='tput setaf 2; printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " - ;tput setaf 7'
 
 drawline
@@ -47,7 +47,7 @@ chsh -s /usr/bin/zsh $USERINVOKING
 cd $PWD/.. 
 curl -Lo $PWD/install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sed -i's@~@'"$PWD"'@g' $PWD/install.sh 
-zsh $PWD/install.sh
+sh $PWD/install.sh
 #cp $PWD/.oh-my-zsh/templates/zshrc.zsh-template $PWD/.zshrc
 #source $PWD/.zshrc
 
@@ -65,8 +65,8 @@ drawline
 #dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)font" 'Fira Coda weight=453 12'
 #dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)background-transparency-percent" 21
 
-dconf load /org/gnome/terminal/ < config-files/gnome-terminal.conf
-dconf load /com/gexpert/ < config-files/tilix-terminal.conf
+runuser -l $USERINVOKING -c "dconf load /org/gnome/terminal/ < config-files/gnome-terminal.conf"
+runuser -l $USERINVOKING -c "dconf load /com/gexpert/ < config-files/tilix-terminal.conf"
 
 
 drawline
