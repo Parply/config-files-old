@@ -1,7 +1,9 @@
 #!/usr/bin/bash
 
 
-alias drawline='tput setaf 2; printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " -' 
+drawline() {
+    'tput setaf 2; printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " -'
+} 
 
 drawline
 tput setaf 6;echo "Starting Instillation of Terminal..."
@@ -17,10 +19,10 @@ chmod 644 /etc/apt/apt.conf.d/99progressbar
 apt update -y && apt upgrade -y
 
 drawline
-tput setaf 6;echo "Installing Required Packages and Adding Git Colours \n openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf ruby zsh python3 python3-pip python3-dev" 
+tput setaf 6;echo "Installing Required Packages and Adding Git Colours \n openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby zsh python3 python3-pip python3-dev" 
 drawline
 
-apt install -y openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf ruby zsh python3 python3-pip python3-dev
+apt install -y openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby zsh python3 python3-pip python3-dev
 git config --global color.ui auto
 
 drawline
