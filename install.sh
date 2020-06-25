@@ -12,7 +12,7 @@ drawline
 tput setaf 6;echo "Adding Progress Bar and Colours to apt"
 drawline
 
-cp ~/config-files/99progressbar  /etc/apt/apt.conf.d
+cp $PWD/config-files/99progressbar  /etc/apt/apt.conf.d
 chmod 644 /etc/apt/apt.conf.d/99progressbar
 
 drawline
@@ -33,7 +33,7 @@ tput setaf 6;echo "Installing Anaconda"
 drawline
 
 wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh -O ~/anaconda.sh
-bash ~/anaconda.sh -b -p $HOME/.anaconda
+bash $PWD/anaconda.sh -b -p $PWD/../.anaconda
 
 drawline
 tput setaf 6;echo "Setting Default Shell to Z-Shell and Installing Oh My Zsh"
@@ -42,8 +42,8 @@ drawline
 chsh -s /usr/bin/zsh root
 
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-source ~/.zshrc
+cp $PWD/.oh-my-zsh/templates/zshrc.zsh-template $PWD/../.zshrc
+source $PWD/../.zshrc
 
 drawline
 tput setaf 6;echo "Installing Syntax Highlighting and Autosuggestions"
@@ -77,13 +77,13 @@ drawline
 tput setaf 6;echo "Installing Glances System Monitoring Tool and Addons"
 drawline
 
-pip3 install -y psutil 'glances[action,browser,cloud,cpuinfo,docker,export,folders,gpu,graph,ip,raid,snmp,web,wifi]' 
+pip3 install psutil 'glances[action,browser,cloud,cpuinfo,docker,export,folders,gpu,graph,ip,raid,snmp,web,wifi]' 
 
 drawline
 tput setaf 6;echo "Installing Powerlines for TMUX"
 drawline
 
-cd
+cd $PWD/..
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local .
@@ -92,19 +92,20 @@ drawline
 tput setaf 6;echo "Creating Symbolic Links to Config Files"
 drawline
 
+cd $PWD/config-files
 
 if  [[ $1 != "-giraffe" ]]; then
-    sed "2d" ~/config-files/.zshrc > ~/config-files/.zshrc
-    rm ~/config-files/giraffe.txt
+    sed "2d" $PWD/.zshrc > $PWD/.zshrc
+    rm $PWD/giraffe.txt
 fi
 
-ln -s -f ~/config-files/.tmux.conf ~/.tmux.conf
-ln -s -f ~/config-files/.tmux.conf.local ~/.tmux.conf.local
-ln -s -f ~/config-files/.tmux.conf ~/.tmux/.tmux.conf
-ln -s -f ~/config-files/.bashrc ~/.bashrc
-ln -s -f ~/config-files/.zshrc ~/.zshrc
-ln -s -f ~/config-files/.p10k.zsh ~/.p10k.zsh
-ln -s -f ~/config-files/.condarc ~/.condarc
+ln -s -f $PWD/.tmux.conf $PWD/../.tmux.conf
+ln -s -f $PWD/.tmux.conf.local $PWD/../.tmux.conf.local
+ln -s -f $PWD/.tmux.conf $PWD/../.tmux/.tmux.conf
+ln -s -f $PWD/.bashrc $PWD/../.bashrc
+ln -s -f $PWD/.zshrc $PWD/../.zshrc
+ln -s -f $PWD/.p10k.zsh $PWD/../.p10k.zsh
+ln -s -f $PWD/.condarc $PWD/../.condarc
 
 
 drawline
