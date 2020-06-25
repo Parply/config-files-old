@@ -2,7 +2,7 @@
 shopt -s expand_aliases
 
 cd ..
-USERINVOKING = $(basename $PWD)
+USERINVOKING=$(basename $PWD)
 cd config-files
 alias drawline='tput setaf 2; printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " - ;tput setaf 7'
 
