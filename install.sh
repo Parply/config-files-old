@@ -32,7 +32,7 @@ drawline
 tput setaf 6;echo "Installing Anaconda"
 drawline
 
-wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh -O ~/anaconda.sh
+wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh -O $PWD/../anaconda.sh
 bash $PWD/anaconda.sh -b -p $PWD/../.anaconda
 
 drawline
