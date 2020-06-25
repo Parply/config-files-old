@@ -12,7 +12,7 @@ drawline
 tput setaf 6;echo "Adding Progress Bar and Colours to apt"
 drawline
 
-cp $PWD/config-files/99progressbar  /etc/apt/apt.conf.d
+cp $PWD/99progressbar  /etc/apt/apt.conf.d
 chmod 644 /etc/apt/apt.conf.d/99progressbar
 
 drawline
