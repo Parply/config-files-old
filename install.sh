@@ -33,18 +33,18 @@ tput setaf 6;echo "Installing Anaconda"
 drawline
 
 wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh -O $PWD/../anaconda.sh
-bash $PWD/../anaconda.sh -b -p $PWD/../.anaconda
+bash $PWD/../anaconda.sh -b -p $PWD/../.anaconda3
 
 drawline
 tput setaf 6;echo "Setting Default Shell to Z-Shell and Installing Oh My Zsh"
 drawline
 
 chsh -s /usr/bin/zsh root
-chsh -s /usr/bin/zsh $(whoami)
+chsh -s /usr/bin/zsh $LOGNAME
 
 cd $PWD/.. 
 curl -Lo $PWD/install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-sed 's/~/$PWD/g' $PWD/install.sh > $PWD/install.sh
+sed -i's@~@'"$PWD"'@g' $PWD/install.sh 
 sh $PWD/install.sh
 #cp $PWD/.oh-my-zsh/templates/zshrc.zsh-template $PWD/.zshrc
 #source $PWD/.zshrc
@@ -60,8 +60,12 @@ drawline
 tput setaf 6;echo "Changing Default Font of Tilix to Fira Conda Retina and Applying Transparency"
 drawline
 
-dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)font" 'Fira Coda weight=453 12'
-dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)background-transparency-percent" 21
+#dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)font" 'Fira Coda weight=453 12'
+#dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)background-transparency-percent" 21
+
+dconf load /org/gnome/terminal/ < gnome-terminal.conf
+dconf load /com/gexpert/ < tilix-terminal.conf
+
 
 drawline
 tput setaf 6;echo "Installing Powerline Theme (Powerlevel10k)"
@@ -98,8 +102,14 @@ drawline
 
 cd $PWD/config-files
 
+for i in $(ls .[!.^g]*); do
+    sed -i 's@alexander@'"$LOGNAME"'@g' $i
+    sed -i 's@~@'"/home/$LOGNAME"'@g' $i
+done   
+
+
 if  [[ $1 != "-giraffe" ]]; then
-    sed "2d" $PWD/.zshrc > $PWD/.zshrc
+    sed -i "2d" $PWD/.zshrc 
     rm $PWD/giraffe.txt
 fi
 
