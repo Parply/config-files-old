@@ -18,7 +18,7 @@ chmod 644 /etc/apt/apt.conf.d/99progressbar
 apt update -y && apt upgrade -y
 
 drawline
-tput setaf 6;echo "Installing Required Packages and Adding Git Colours \n openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby zsh python3 python3-pip python3-dev" 
+tput setaf 6;printf "Installing Required Packages and Adding Git Colours" '\n%s\n' "openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby zsh python3 python3-pip python3-dev" 
 drawline
 
 apt install -y openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby zsh python3 python3-pip python3-dev
