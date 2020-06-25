@@ -32,7 +32,7 @@ drawline
 tput setaf 6;echo "Installing Anaconda"
 drawline
 
-wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh -O $PWD/../anaconda.sh
+https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh -O $PWD/../anaconda.sh
 bash $PWD/../anaconda.sh -b -p $PWD/../.anaconda
 
 drawline
@@ -41,15 +41,16 @@ drawline
 
 chsh -s /usr/bin/zsh root
 
-wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O $PWD/.. | zsh
-cp $PWD/../.oh-my-zsh/templates/zshrc.zsh-template $PWD/../.zshrc
-source $PWD/../.zshrc
+cd $PWD/.. 
+-u $(whoami) wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+cp $PWD/.oh-my-zsh/templates/zshrc.zsh-template $PWD/.zshrc
+source $PWD/.zshrc
 
 drawline
 tput setaf 6;echo "Installing Syntax Highlighting and Autosuggestions"
 drawline
 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$PWD/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
 drawline
