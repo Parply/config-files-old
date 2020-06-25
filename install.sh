@@ -45,7 +45,7 @@ cd $PWD/..
 curl -Lo $PWD/install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sed 's/~/$PWD/g' $PWD/install.sh > $PWD/install.sh
 sh $PWD/install.sh
-cp $PWD/.oh-my-zsh/templates/zshrc.zsh-template $PWD/.zshrc
+#cp $PWD/.oh-my-zsh/templates/zshrc.zsh-template $PWD/.zshrc
 #source $PWD/.zshrc
 
 drawline
@@ -72,7 +72,7 @@ drawline
 tput setaf 6;echo "Installing Colourful List Files"
 drawline
 
-gem install -y colorls
+gem install colorls
 
 apt update -y && apt upgrade -y
 
@@ -86,7 +86,7 @@ drawline
 tput setaf 6;echo "Installing Powerlines for TMUX"
 drawline
 
-cd $PWD/..
+
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local .
@@ -115,7 +115,7 @@ drawline
 drawline
 tput setaf 6;echo "DONE!!! Close and Open Tilix"
 drawline
-drawlinw
+drawline
 
 
 
