@@ -45,9 +45,9 @@ chsh -s /usr/bin/zsh root
 chsh -s /usr/bin/zsh $USERINVOKING
 
 cd $PWD/.. 
-curl -Lo $PWD/install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-sed -i's@~@'"$PWD"'@g' $PWD/install.sh 
-sh $PWD/install.sh
+runuser -l $USERINVOKING 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+#sed -i's@~@'"$PWD"'@g' $PWD/install.sh 
+#sh $PWD/install.sh
 #cp $PWD/.oh-my-zsh/templates/zshrc.zsh-template $PWD/.zshrc
 #source $PWD/.zshrc
 
