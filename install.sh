@@ -33,9 +33,9 @@ git config --global color.ui auto
 drawline
 tput setaf 6;echo "Installing Anaconda"
 drawline
-
+cd ..
 wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh -O $PWD/../anaconda.sh
-bash $PWD/../anaconda.sh -b -p $PWD/../.anaconda3
+bash ./anaconda.sh -b -p .anaconda3
 
 drawline
 tput setaf 6;echo "Setting Default Shell to Z-Shell and Installing Oh My Zsh"
@@ -44,7 +44,7 @@ drawline
 chsh -s /usr/bin/zsh root
 chsh -s /usr/bin/zsh $USERINVOKING
 
-cd $PWD/.. 
+ 
 runuser -l $USERINVOKING 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
 #sed -i's@~@'"$PWD"'@g' $PWD/install.sh 
 #sh $PWD/install.sh
