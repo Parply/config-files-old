@@ -68,7 +68,7 @@ if  [[ $1 != "-giraffe" ]]; then
     rm $PWD/giraffe.txt
 fi
 
-ln -s -f /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh 
+
 ln -s -f $PWD/.tmux.conf $PWD/../.tmux.conf
 ln -s -f $PWD/.tmux.conf.local $PWD/../.tmux.conf.local
 ln -s -f $PWD/.tmux.conf $PWD/../.tmux/.tmux.conf
@@ -85,7 +85,7 @@ drawline
 drawline
 
 else
-
+ln -s -f /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh 
 cd ..
 USERINVOKING=$(basename $PWD)
 cd config-files
