@@ -24,15 +24,15 @@ drawline
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $PWD/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions $PWD/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
-drawline
-tput setaf 6;echo "Changing Default Font of Tilix to Fira Conda Retina and Applying Transparency"
-drawline
+#drawline
+#tput setaf 6;echo "Changing Default Font of Tilix to Fira Conda Retina and Applying Transparency"
+#drawline
 
 #dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)font" 'Fira Coda weight=453 12'
 #dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)background-transparency-percent" 21
 
-export DISPLAY=:0.0; xhost +; dconf load /org/gnome/terminal/ < config-files/gnome-terminal.conf; xhost -
-export DISPLAY=:0.0; xhost +; dconf load /com/gexpert/ < config-files/tilix-terminal.conf; xhost -
+#export DISPLAY=:0.0; xhost +; dconf load /org/gnome/terminal/ < config-files/gnome-terminal.conf; xhost -
+#export DISPLAY=:0.0; xhost +; dconf load /com/gexpert/ < config-files/tilix-terminal.conf; xhost -
 
 
 drawline
@@ -66,14 +66,23 @@ if  [[ $1 != "-giraffe" ]]; then
 fi
 
 
-ln -s -f $PWD/.tmux.conf $PWD/../.tmux.conf
-ln -s -f $PWD/.tmux.conf.local $PWD/../.tmux.conf.local
-ln -s -f $PWD/.tmux.conf $PWD/../.tmux/.tmux.conf
-ln -s -f $PWD/.bashrc $PWD/../.bashrc
-ln -s -f $PWD/.zshrc $PWD/../.zshrc
-ln -s -f $PWD/.p10k.zsh $PWD/../.p10k.zsh
-ln -s -f $PWD/.condarc $PWD/../.condarc
+ln -s -f .tmux.conf ../.tmux.conf
+ln -s -f .tmux.conf ../.tmux/.tmux.conf
+ln -s -f .tmux.conf.local ../.tmux.conf.local
+ln -s -f .tmux.conf.local ../.tmux/.tmux.conf.local
+ln -s -f .bashrc ../.bashrc
+ln -s -f .zshrc ../.zshrc
+ln -s -f .p10k.zsh ../.p10k.zsh
+ln -s -f .condarc ../.condarc
 
+cd 
+
+source .bashrc
+source .zshrc
+source .p10.conf
+source .condarc
+source .tmux.conf
+source .tmux.conf.local
 
 drawline
 drawline
