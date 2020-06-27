@@ -129,7 +129,7 @@ tput setaf 6;echo "DONE!!! Change font in terminal to MesloLGS NF"
 drawline
 drawline
 
-
+exit
 
 else
 
