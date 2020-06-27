@@ -76,23 +76,23 @@ rm .tmux/.tmux.conf.local
 
 cd config-files
 
-#ln -s -f .tmux.conf ../.tmux.conf
-#ln -s -f .tmux.conf ../.tmux/.tmux.conf
-#ln -s -f .tmux.conf.local ../.tmux.conf.local
+ln -s -f .tmux.conf ../.tmux.conf
+ln -s -f .tmux.conf ../.tmux/.tmux.conf
+ln -s -f .tmux.conf.local ../.tmux.conf.local
 #ln -s -f .tmux.conf.local ../.tmux/.tmux.conf.local
-#ln -s -f .bashrc ../.bashrc
-#ln -s -f .zshrc ../.zshrc
-#ln -s -f .p10k.zsh ../.p10k.zsh
-#ln -s -f .condarc ../.condarc
+ln -s -f .bashrc ../.bashrc
+ln -s -f .zshrc ../.zshrc
+ln -s -f .p10k.zsh ../.p10k.zsh
+ln -s -f .condarc ../.condarc
 
-cp .tmux.conf ../.tmux.conf
-cp .tmux.conf ../.tmux/.tmux.conf
-cp .tmux.conf.local ../.tmux.conf.local
-cp .tmux.conf.local ../.tmux/.tmux.conf.local
-cp .bashrc ../.bashrc
-cp .zshrc ../.zshrc
-cp .p10k.zsh ../.p10k.zsh
-cp .condarc ../.condarc
+#cp .tmux.conf ../.tmux.conf
+#cp .tmux.conf ../.tmux/.tmux.conf
+#cp .tmux.conf.local ../.tmux.conf.local
+#cp .tmux.conf.local ../.tmux/.tmux.conf.local
+#cp .bashrc ../.bashrc
+#cp .zshrc ../.zshrc
+#cp .p10k.zsh ../.p10k.zsh
+#cp .condarc ../.condarc
 
 
 cd 
