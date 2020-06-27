@@ -47,7 +47,8 @@ chsh -s /usr/bin/zsh $USERINVOKING
 touch .zshrc
 touch ~/.zshrc
  
-runuser -l $USERINVOKING 'curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh'
+#runuser -l $USERINVOKING 'curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh'
+runuser -l $USERINVOKING 'wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O install.sh'
 runuser -l $USERINVOKING 'export CHSH="no"; export RUNZSH="no"; sh ./install.sh'
 
  
@@ -72,8 +73,8 @@ drawline
 #dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)font" 'Fira Coda weight=453 12'
 #dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)background-transparency-percent" 21
 
-runuser -l $USERINVOKING -c "dconf load /org/gnome/terminal/ < config-files/gnome-terminal.conf"
-runuser -l $USERINVOKING -c "dconf load /com/gexpert/ < config-files/tilix-terminal.conf"
+runuser -l $USERINVOKING -c "export DISPLAY=:0.0; xhost +; dconf load /org/gnome/terminal/ < config-files/gnome-terminal.conf; xhost -"
+runuser -l $USERINVOKING -c "export DISPLAY=:0.0; xhost +; dconf load /com/gexpert/ < config-files/tilix-terminal.conf; xhost -"
 
 
 drawline
