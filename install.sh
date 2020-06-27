@@ -4,6 +4,23 @@ alias drawline='tput setaf 2; printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr 
 
 
 if [ -f continue_install.txt ]; then 
+drawline
+tput setaf 6;echo "Installing MesloLGS NF fonts"
+drawline
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+
+mkdir -p ~/.local/share/fonts 
+
+mv *.ttf ~/.local/share/fonts 
+
+fc-cache -f -v 
+
+drawline
+tput setaf 6;echo "Setting Default Shell to Z-Shell and Installing Oh My Zsh"
+drawline
  
 curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O install.sh
@@ -104,6 +121,7 @@ cd
 #source .tmux.conf
 #source .tmux.conf.local
 
+export SHELL="$zsh"
 
 drawline
 drawline
@@ -169,9 +187,7 @@ drawline
 
 pip3 install psutil 'glances[action,browser,cloud,cpuinfo,docker,export,folders,gpu,graph,ip,raid,snmp,web,wifi]' 
 
-drawline
-tput setaf 6;echo "Setting Default Shell to Z-Shell and Installing Oh My Zsh"
-drawline
+
 
 
 
