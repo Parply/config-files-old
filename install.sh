@@ -114,12 +114,16 @@ ln -s -f $PWD/.condarc /home/$USER/.condarc
 
 cd 
 
-#source .bashrc
-#source .zshrc
-#source .p10.conf
-#source .condarc
-#source .tmux.conf
-#source .tmux.conf.local
+
+source .anaconda3/bin/activate
+source .bashrc
+source .zshrc
+source .p10.conf
+source .condarc
+source .tmux.conf
+source .tmux.conf.local
+
+conda init
 
 export SHELL="$zsh"
 
@@ -199,7 +203,7 @@ chsh -s /usr/bin/zsh root
 chsh -s /usr/bin/zsh $USERINVOKING
 echo "alias shopt='/usr/bin/shopt'" >> .zshrc
 echo "touch continue_install.txt; zsh ./config-files/install.sh" >> .zshrc
-
+usermod --shell /usr/bin/zsh $USERINVOKING
 runuser -l $USERINVOKING -c "exec zsh"
 
 fi
