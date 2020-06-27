@@ -61,29 +61,29 @@ cd config-files
 
 
 if  [[ $1 != "-giraffe" ]]; then
-    sed -i "2d" $PWD/.zshrc 
-    rm $PWD/giraffe.txt
+    sed -i "2d" .zshrc 
+    rm giraffe.txt
 fi
 
-cd
+#cd
 
-rm .bashrc
-rm .zshrc
-rm .tmux.conf
-rm .tmux.conf.local
-rm .tmux/.tmux.conf
-rm .tmux/.tmux.conf.local
+#rm .bashrc
+#rm .zshrc
+#rm .tmux.conf
+#rm .tmux.conf.local
+#rm .tmux/.tmux.conf
+#rm .tmux/.tmux.conf.local
 
-cd config-files
+#cd config-files
 
-ln -s -f .tmux.conf ../.tmux.conf
-ln -s -f .tmux.conf ../.tmux/.tmux.conf
-ln -s -f .tmux.conf.local ../.tmux.conf.local
-#ln -s -f .tmux.conf.local ../.tmux/.tmux.conf.local
-ln -s -f .bashrc ../.bashrc
-ln -s -f .zshrc ../.zshrc
-ln -s -f .p10k.zsh ../.p10k.zsh
-ln -s -f .condarc ../.condarc
+ln -s -f $PWD/.tmux.conf /home/$USER/.tmux.conf
+ln -s -f $PWD/.tmux.conf /home/$USER/.tmux/.tmux.conf
+ln -s -f $PWD/.tmux.conf.local /home/$USER/.tmux.conf.local
+ln -s -f $PWD/.tmux.conf.local /home/$USER/.tmux/.tmux.conf.local
+ln -s -f $PWD/.bashrc /home/$USER/.bashrc
+ln -s -f $PWD/.zshrc /home/$USER/.zshrc
+ln -s -f $PWD/.p10k.zsh /home/$USER/.p10k.zsh
+ln -s -f $PWD/.condarc /home/$USER/.condarc
 
 #cp .tmux.conf ../.tmux.conf
 #cp .tmux.conf ../.tmux/.tmux.conf
