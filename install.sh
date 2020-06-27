@@ -172,6 +172,7 @@ drawline
 cd ..
 wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh -O anaconda.sh
 bash ./anaconda.sh -b -p .anaconda3
+runuser -l $USERINVOKING -c "source ~/.anaconda3/bin/activate; conda init"
 
 drawline
 tput setaf 6;echo "Installing Colourful List Files"
