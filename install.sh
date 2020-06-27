@@ -55,12 +55,9 @@ drawline
 tput setaf 6;echo "Creating Symbolic Links to Config Files"
 drawline
 
-cd $PWD/config-files
+cd config-files
 
-for i in $(ls .[!.^g]*); do
-    sed -i 's@alexander@'"$USERINVOKING"'@g' $i
-    sed -i 's@~@'"/home/$USERINVOKING"'@g' $i
-done   
+
 
 
 if  [[ $1 != "-giraffe" ]]; then
@@ -85,11 +82,16 @@ drawline
 drawline
 
 else
-ln -s -f /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh 
+
+
 cd ..
 USERINVOKING=$(basename $PWD)
 cd config-files
-
+ln -s -f /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh 
+for i in $(ls .[!.^g]*); do
+    sed -i 's@alexander@'"$USERINVOKING"'@g' $i
+    sed -i 's@~@'"/home/$USERINVOKING"'@g' $i
+done   
 
 drawline
 tput setaf 6;echo "Starting Instillation of Terminal..."
