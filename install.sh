@@ -119,7 +119,6 @@ cd config-files
 ln -s -f /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh 
 for i in $(ls .[!.^g]*); do
     sed -i 's@alexander@'"$USERINVOKING"'@g' $i
-    sed -i 's@~@'"/home/$USERINVOKING"'@g' $i
 done   
 
 drawline
