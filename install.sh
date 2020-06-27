@@ -148,7 +148,7 @@ touch ~/.zshrc
 
 echo "touch continue_install.txt; zsh ./config-files/install.sh" >> .zshrc
 
-runuser -l $USERINVOKING -c "zsh"
+runuser -l $USERINVOKING -c "exec zsh"
 
 fi
 
