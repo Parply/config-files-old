@@ -125,7 +125,7 @@ export SHELL="$zsh"
 
 drawline
 drawline
-tput setaf 6;echo "DONE!!! Change font in terminal to Fira Code"
+tput setaf 6;echo "DONE!!! Change font in terminal to MesloLGS NF"
 drawline
 drawline
 
