@@ -47,7 +47,12 @@ chsh -s /usr/bin/zsh $USERINVOKING
 touch .zshrc
 touch ~/.zshrc
  
-runuser -l $USERINVOKING 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+runuser -l $USERINVOKING 'curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh'
+runuser -l $USERINVOKING 'export CHSH="no"; export RUNZSH="no"; sh ./install.sh'
+
+ 
+ 
+#runuser -l $USERINVOKING 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
 #sed -i's@~@'"$PWD"'@g' $PWD/install.sh 
 #sh $PWD/install.sh
 #cp $PWD/.oh-my-zsh/templates/zshrc.zsh-template $PWD/.zshrc
