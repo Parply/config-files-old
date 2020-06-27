@@ -44,6 +44,8 @@ drawline
 chsh -s /usr/bin/zsh root
 chsh -s /usr/bin/zsh $USERINVOKING
 
+touch .zshrc
+touch ~/.zshrc
  
 runuser -l $USERINVOKING 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
 #sed -i's@~@'"$PWD"'@g' $PWD/install.sh 
