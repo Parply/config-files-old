@@ -3,7 +3,7 @@ shopt -s expand_aliases
 alias drawline='tput setaf 2; printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " - ;tput setaf 7'
 
 
-if [-f continue_install.txt]; then 
+if [ -f continue_install.txt ]; then 
  
 curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O install.sh
@@ -146,6 +146,7 @@ chsh -s /usr/bin/zsh $USERINVOKING
 touch .zshrc
 touch ~/.zshrc
 
+echo "alias shopt='/usr/bin/shopt'" >> .zshrc
 echo "touch continue_install.txt; zsh ./config-files/install.sh" >> .zshrc
 
 runuser -l $USERINVOKING -c "exec zsh"
