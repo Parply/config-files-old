@@ -65,6 +65,14 @@ if  [[ $1 != "-giraffe" ]]; then
     rm $PWD/giraffe.txt
 fi
 
+cd
+
+rm .bashrc
+rm .zshrc
+rm .tmux.conf
+rm .tmux.conf.local
+rm .tmux/.tmux.conf
+rm .tmux/.tmux.conf.local
 
 ln -s -f .tmux.conf ../.tmux.conf
 ln -s -f .tmux.conf ../.tmux/.tmux.conf
