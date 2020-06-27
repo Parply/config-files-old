@@ -103,7 +103,7 @@ cd
 #source .condarc
 #source .tmux.conf
 #source .tmux.conf.local
-chsh -s /usr/bin/zsh $USER
+
 
 drawline
 drawline
@@ -111,13 +111,6 @@ tput setaf 6;echo "DONE!!! Change font in terminal to Fira Code"
 drawline
 drawline
 
-for i in {5..1}
-do
-tput cup 10 $l
-echo -n "Closing Terminal... $i"
-sleep 1
-done
-exit
 
 
 else
@@ -186,7 +179,7 @@ drawline
 touch .zshrc
 touch ~/.zshrc
 chsh -s /usr/bin/zsh root
-
+chsh -s /usr/bin/zsh $USERINVOKING
 echo "alias shopt='/usr/bin/shopt'" >> .zshrc
 echo "touch continue_install.txt; zsh ./config-files/install.sh" >> .zshrc
 
