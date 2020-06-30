@@ -69,8 +69,18 @@ ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local .
 
 drawline
+tput setaf 6;echo "Vim plugin manager"
+drawline
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+drawline
 tput setaf 6;echo "Creating Symbolic Links to Config Files"
 drawline
+
+mkdir -p ~/.config/glances
+mkdir -p ~/.config/kitty
+
 
 cd config-files
 
@@ -92,7 +102,10 @@ fi
 #rm .tmux/.tmux.conf.local
 
 #cd config-files
-
+ln -s -f $PWD/colours.conf /home/$USER/.config/kitty/colours.conf
+ln -s -f $PWD/kitty.conf /home/$USER/.config/kitty/kitty.conf
+ln -s -f $PWD/glances.conf /home/$USER/.config/glances/glances.conf
+ln -s -f $PWD/.vimrc /home/$USER/.vimrc
 ln -s -f $PWD/.tmux.conf /home/$USER/.tmux.conf
 ln -s -f $PWD/.tmux.conf /home/$USER/.tmux/.tmux.conf
 ln -s -f $PWD/.tmux.conf.local /home/$USER/.tmux.conf.local
@@ -128,12 +141,18 @@ conda init
 export SHELL="$zsh"
 
 drawline
+tput setaf 6;echo "Installing vim plugins"
 drawline
-tput setaf 6;echo "DONE!!! Change font in terminal to MesloLGS NF"
+
+ex "+:PlugInstall" "+:q" "+:q"
+
+drawline
+drawline
+tput setaf 6;echo "DONE!!! Change font in terminal to MesloLGS NF or use Kitty"
 drawline
 drawline
 
-exit
+
 
 else
 
@@ -164,10 +183,10 @@ drawline
 apt update -y && apt upgrade -y
 
 drawline
-tput setaf 6;echo "Installing Required Packages and Adding Git Colours"; echo "curl openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev" 
+tput setaf 6;echo "Installing Required Packages and Adding Git Colours"; echo "kitty vim curl openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev" 
 drawline
 
-apt install -y curl openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev
+apt install -y curl openssh-server openssh-client xclip wget git perl kitty vim tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev
 git config --global color.ui auto
 
 drawline
@@ -202,7 +221,7 @@ touch ~/.zshrc
 chsh -s /usr/bin/zsh root
 chsh -s /usr/bin/zsh $USERINVOKING
 echo "alias shopt='/usr/bin/shopt'" >> .zshrc
-echo "touch continue_install.txt; zsh ./config-files/install.sh" >> .zshrc
+echo "touch continue_install.txt; zsh ./config-files/install.sh $1; exit" >> .zshrc
 usermod --shell /usr/bin/zsh $USERINVOKING
 runuser -l $USERINVOKING -c "exec zsh"
 
