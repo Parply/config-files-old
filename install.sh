@@ -146,6 +146,9 @@ drawline
 
 ex "+:PlugInstall" "+:q" "+:q"
 
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clangd-completer --rust-completer --ts-completer 
+
 drawline
 drawline
 tput setaf 6;echo "DONE!!! Change font in terminal to MesloLGS NF or use Kitty"
@@ -183,11 +186,13 @@ drawline
 apt update -y && apt upgrade -y
 
 drawline
-tput setaf 6;echo "Installing Required Packages and Adding Git Colours"; echo "kitty vim curl openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev" 
+tput setaf 6;echo "Installing Required Packages and Adding Git Colours"; echo "r-base gnupg ca-certificates npm kitty vim curl openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev" 
 drawline
 
-apt install -y curl openssh-server openssh-client xclip wget git perl kitty vim tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev
+apt install -y curl r-base npm openssh-server openssh-client xclip wget git perl kitty vim tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev
 git config --global color.ui auto
+
+npm install -y npm -g 
 
 drawline
 tput setaf 6;echo "Installing Anaconda"
@@ -224,6 +229,8 @@ echo "alias shopt='/usr/bin/shopt'" >> .zshrc
 echo "touch continue_install.txt; zsh ./config-files/install.sh $1; exit" >> .zshrc
 usermod --shell /usr/bin/zsh $USERINVOKING
 runuser -l $USERINVOKING -c "exec zsh"
+
+rm continue_install.txt
 
 fi
 
