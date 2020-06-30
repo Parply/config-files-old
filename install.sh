@@ -8,7 +8,7 @@ if [ -f continue_install.txt ]; then
 drawline
 tput setaf 6;echo "Installing Anaconda"
 drawline
-cd ..
+
 wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh -O anaconda.sh
 bash ./anaconda.sh -b -p .anaconda3
 source ~/.anaconda3/bin/activate; conda init
@@ -149,7 +149,7 @@ ln -s -f /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
 for i in $(ls .[!.^g]*); do
     sed -i 's@alexander@'"$USERINVOKING"'@g' $i
 done   
-
+cd ..
 drawline
 tput setaf 6;echo "Starting Instillation of Terminal..."
 drawline
