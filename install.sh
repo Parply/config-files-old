@@ -201,12 +201,13 @@ touch .zshrc
 touch ~/.zshrc
 chsh -s /usr/bin/zsh root
 chsh -s /usr/bin/zsh $USERINVOKING
-echo "#comment" >> .zshrc
+#echo "#comment" >> .zshrc
 echo "alias shopt='/usr/bin/shopt'" >> .zshrc
-echo "touch continue_install.txt; zsh ./config-files/install.sh $1; exit" >> .zshrc
+touch continue_install.txt
+echo "zsh ./config-files/install.sh $1; exit" >> .zshrc
 #source .zshrc
 usermod --shell /usr/bin/zsh $USERINVOKING
-runuser -l $USERINVOKING -c "exec zsh"
+runuser -l $USERINVOKING -c "zsh"
 
 rm continue_install.txt
 rm anaconda.sh
