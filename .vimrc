@@ -18,6 +18,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'mhinz/vim-signify'
 call plug#end()
 
+" auto completions
+let g:ycm_clangd_binary_path = "/usr/bin/clangd"
+
 " Set encoding
 set encoding=UTF-8
 
