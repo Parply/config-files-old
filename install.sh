@@ -161,10 +161,10 @@ drawline
 apt update -y && apt upgrade -y
 
 drawline
-tput setaf 6;echo "Installing Required Packages and Adding Git Colours"; echo "r-base gnupg ca-certificates npm kitty vim curl openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev" 
+tput setaf 6;echo "Installing Required Packages and Adding Git Colours"; echo "r-base cmake clangd lolcat gnupg ca-certificates npm kitty vim curl openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev" 
 drawline
 
-apt install -y curl r-base npm openssh-server openssh-client xclip wget git perl kitty vim tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev
+apt install -y curl lolcat cmake clangd r-base npm openssh-server openssh-client xclip wget git perl kitty vim tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev
 git config --global color.ui auto
 
 npm install -y npm -g 
