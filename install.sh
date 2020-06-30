@@ -4,6 +4,15 @@ alias drawline='tput setaf 2; printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr 
 
 
 if [ -f continue_install.txt ]; then 
+
+drawline
+tput setaf 6;echo "Installing Anaconda"
+drawline
+cd ..
+wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh -O anaconda.sh
+bash ./anaconda.sh -b -p .anaconda3
+source ~/.anaconda3/bin/activate; conda init
+
 drawline
 tput setaf 6;echo "Installing MesloLGS NF fonts"
 drawline
@@ -167,13 +176,7 @@ git config --global color.ui auto
 
 npm install -y npm -g 
 
-drawline
-tput setaf 6;echo "Installing Anaconda"
-drawline
-cd ..
-wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh -O anaconda.sh
-bash ./anaconda.sh -b -p .anaconda3
-runuser -l $USERINVOKING -c "source ~/.anaconda3/bin/activate; conda init"
+
 
 drawline
 tput setaf 6;echo "Installing Colourful List Files"
@@ -204,6 +207,8 @@ usermod --shell /usr/bin/zsh $USERINVOKING
 runuser -l $USERINVOKING -c "exec zsh"
 
 rm continue_install.txt
+rm anaconda.sh
+rm install.sh
 
 fi
 
