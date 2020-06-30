@@ -149,7 +149,7 @@ ln -s -f /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
 for i in $(ls .[!.^g]*); do
     sed -i 's@alexander@'"$USERINVOKING"'@g' $i
 done   
-cd ..
+
 drawline
 tput setaf 6;echo "Starting Instillation of Terminal..."
 drawline
@@ -160,7 +160,7 @@ drawline
 
 cp $PWD/99progressbar  /etc/apt/apt.conf.d
 chmod 644 /etc/apt/apt.conf.d/99progressbar
-
+cd ..
 drawline
 tput setaf 6;echo "Performing update and upgrade"
 drawline
