@@ -201,6 +201,7 @@ touch .zshrc
 touch ~/.zshrc
 chsh -s /usr/bin/zsh root
 chsh -s /usr/bin/zsh $USERINVOKING
+echo "#comment" >> .zshrc
 echo "alias shopt='/usr/bin/shopt'" >> .zshrc
 echo "touch continue_install.txt; zsh ./config-files/install.sh $1; exit" >> .zshrc
 usermod --shell /usr/bin/zsh $USERINVOKING
