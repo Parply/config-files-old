@@ -28,11 +28,7 @@ export CHSH="no"; export RUNZSH="no"; sh ./install.sh
 
  
  
-#runuser -l $USERINVOKING 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
-#sed -i's@~@'"$PWD"'@g' $PWD/install.sh 
-#sh $PWD/install.sh
-#cp $PWD/.oh-my-zsh/templates/zshrc.zsh-template $PWD/.zshrc
-#source $PWD/.zshrc
+
 
 drawline
 tput setaf 6;echo "Installing Syntax Highlighting and Autosuggestions"
@@ -41,15 +37,6 @@ drawline
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $PWD/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions $PWD/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
-#drawline
-#tput setaf 6;echo "Changing Default Font of Tilix to Fira Conda Retina and Applying Transparency"
-#drawline
-
-#dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)font" 'Fira Coda weight=453 12'
-#dconf write "/com/gexperts/Tilix/profiles/$(dconf list /com/gexperts/Tilix/profiles/)background-transparency-percent" 21
-
-#export DISPLAY=:0.0; xhost +; dconf load /org/gnome/terminal/ < config-files/gnome-terminal.conf; xhost -
-#export DISPLAY=:0.0; xhost +; dconf load /com/gexpert/ < config-files/tilix-terminal.conf; xhost -
 
 
 drawline
@@ -92,16 +79,11 @@ if  [[ $1 != "-giraffe" ]]; then
     rm giraffe.txt
 fi
 
-#cd
 
-#rm .bashrc
-#rm .zshrc
-#rm .tmux.conf
-#rm .tmux.conf.local
-#rm .tmux/.tmux.conf
-#rm .tmux/.tmux.conf.local
 
-#cd config-files
+
+
+
 ln -s -f $PWD/colours.conf /home/$USER/.config/kitty/colours.conf
 ln -s -f $PWD/kitty.conf /home/$USER/.config/kitty/kitty.conf
 ln -s -f $PWD/glances.conf /home/$USER/.config/glances/glances.conf
@@ -115,14 +97,7 @@ ln -s -f $PWD/.zshrc /home/$USER/.zshrc
 ln -s -f $PWD/.p10k.zsh /home/$USER/.p10k.zsh
 ln -s -f $PWD/.condarc /home/$USER/.condarc
 
-#cp .tmux.conf ../.tmux.conf
-#cp .tmux.conf ../.tmux/.tmux.conf
-#cp .tmux.conf.local ../.tmux.conf.local
-#cp .tmux.conf.local ../.tmux/.tmux.conf.local
-#cp .bashrc ../.bashrc
-#cp .zshrc ../.zshrc
-#cp .p10k.zsh ../.p10k.zsh
-#cp .condarc ../.condarc
+
 
 
 cd 
@@ -146,7 +121,7 @@ drawline
 
 ex "+:PlugInstall" "+:q" "+:q"
 
-cd ~/.vim/bundle/YouCompleteMe
+cd ~/.vim/plugged/YouCompleteMe
 ./install.py --clangd-completer --rust-completer --ts-completer 
 
 drawline
