@@ -120,9 +120,7 @@ tput setaf 6;echo "Installing vim plugins"
 drawline
 
 ex "+:PlugInstall" "+:q" "+:q"
-
-cd ~/.vim/plugged/YouCompleteMe
-./install.py --clangd-completer --rust-completer --ts-completer 
+ex "+:CocInstall coc-python coc-clangd coc-css coc-cssmodules coc-highlight coc-html coc-r-lsp coc-rls coc-snippets coc-spell-checker coc-sql coc-yaml coc-texlab" "+:q" "+:q"
 
 drawline
 drawline
@@ -161,10 +159,10 @@ drawline
 apt update -y && apt upgrade -y
 
 drawline
-tput setaf 6;echo "Installing Required Packages and Adding Git Colours"; echo "r-base cmake clangd lolcat gnupg ca-certificates npm kitty vim curl openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev" 
+tput setaf 6;echo "Installing Required Packages and Adding Git Colours"; echo "texlive r-base cmake clangd lolcat gnupg ca-certificates npm kitty vim curl openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev" 
 drawline
 
-apt install -y curl lolcat cmake clangd r-base npm openssh-server openssh-client xclip wget git perl kitty vim tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev
+apt install -y texlive curl lolcat cmake clangd r-base npm openssh-server openssh-client xclip wget git perl kitty vim tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev
 git config --global color.ui auto
 
 npm install -y npm -g 
