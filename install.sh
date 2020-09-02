@@ -80,7 +80,7 @@ mkdir -p ~/.config/kitty
 
 cd config-files
 
-
+cp $PWD/coc-settings.json /home/$USER/.config/nvim
 
 
 if  [[ $1 != "-giraffe" ]]; then
@@ -168,15 +168,28 @@ drawline
 apt update -y && apt upgrade -y
 
 drawline
-tput setaf 6;echo "Installing Required Packages and Adding Git Colours"; echo "texlive r-base cmake clangd lolcat gnupg ca-certificates npm kitty vim curl openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev" 
+tput setaf 6;echo "Installing Required Packages and Adding Git Colours"; echo "texlive r-base cmake clangd lolcat gnupg ca-certificates npm kitty vim curl openssh-server openssh-client xclip wget git perl tilix tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev gcc make pkg-config autoconf automake python3-docutils libseccomp-dev libjansson-dev libyaml-dev libxml2-dev" 
 drawline
 
-apt install -y texlive curl lolcat cmake clangd r-base npm openssh-server openssh-client xclip wget git perl kitty vim tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev
+apt install -y texlive curl lolcat cmake clangd r-base npm openssh-server openssh-client xclip wget git perl kitty vim tmux neofetch fonts-firacode dconf-cli ruby ruby-dev zsh python3 python3-pip python3-dev gcc make pkg-config autoconf automake python3-docutils libseccomp-dev libjansson-dev libyaml-dev libxml2-dev
 git config --global color.ui auto
 
 npm install -y npm -g 
 
+drawline
+tput setaf 6;echo "Installing Universal ctags"
+drawline
 
+git clone https://github.com/universal-ctags/ctags.git
+
+cd universal-ctags
+
+./autogen.sh
+./configure 
+make
+make install
+
+cd ..
 
 drawline
 tput setaf 6;echo "Installing Colourful List Files"
@@ -190,7 +203,7 @@ drawline
 tput setaf 6;echo "Installing Glances System Monitoring Tool and Addons"
 drawline
 
-pip3 install psutil 'glances[action,browser,cloud,cpuinfo,docker,export,folders,gpu,graph,ip,raid,snmp,web,wifi]' 
+pip3 install psutil 'glances[action,browser,cloud,cpuinfo,docker,export,folders,gpu,graph,ip,raid,snmp,web,wifi]' fortran-language-server
 
 
 

@@ -122,6 +122,13 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 
 alias lc='colorls -lA --sd'
 
+
+export EDITOR='nvim'
+
+export VISUAL='nvim'
+
+export PATH=/snap/bin:$PATH
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/alexander/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"

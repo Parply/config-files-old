@@ -16,8 +16,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-eunuch'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mhinz/vim-signify'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdcommenter'
+Plug 'majutsushi/tagbar'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
-
 
 
 " Set encoding
@@ -32,17 +35,33 @@ let g:airline_powerline_fonts = 1
 
 " Mouse
 
-set ttymouse=sgr
+"set ttymouse=sgr
 set mouse=a
 " Enable rainbow brackets
-au FileType c,cpp,objc,objcpp,py,R call rainbow#load()
+"au FileType c,cpp,onjc,objcpp,python,R call rainbow#load()
+"let g:rainbow_active = 1
+let g:mapleader="\<Space>"
+
+""" tagbar toggle
+nmap <F8> :TagbarToggle<CR>
 
 """"""""""""
 
 
 " OneDark Theme
 syntax on
-set number
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
 
 let g:airline_theme='onedark'
 
@@ -57,8 +76,12 @@ endif
 colorscheme onedark
 
 
+" Enable rainbow brackets
+au FileType c,cpp,onjc,objcpp,python,R call rainbow#load()
+"let g:rainbow_active = 1
+" prettier
 
-
+command! -nargs=0 Prettier :call CocAction('runCommand','prettier.formatFile')
 " NerdTree
 
 autocmd VimEnter * NERDTree
@@ -218,4 +241,6 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
+""coc-prettier
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
