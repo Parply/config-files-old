@@ -1,5 +1,6 @@
-neofetch
-cat ~/config-files/giraffe.txt | lolcat
+#neofetch
+#cat ~/config-files/giraffe.txt | lolcat
+colorscript -r # https://gitlab.com/dwt1/shell-color-scripts
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -82,7 +83,7 @@ typeset -g POWERLINE9K_INSTANT_PROMPT=quiet
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting bgnotify colored-man-pages command-not-found emoji tmux zsh-interactive-cd screen)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting bgnotify colored-man-pages command-not-found emoji tmux zsh-interactive-cd screen fancy-ctrl-z sudo wakatime)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -128,10 +129,15 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 
 export PATH=/snap/bin:$PATH
+export PATH=~/.emacs.d/bin:$PATH
+
+if [ -s "/usr/share/terminfo/x/xterm-kitty" ]; then
+	alias tput='tput -T xterm'
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/alexander/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/alexander/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
