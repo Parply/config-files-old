@@ -3,7 +3,6 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-PLUG 'yegappan/taglist'
 Plug 'junegunn/fzf.vim'
 Plug 'vifm/vifm.vim'
 Plug 'joshdick/onedark.vim'
@@ -25,7 +24,6 @@ Plug 'wakatime/vim-wakatime'
 Plug 'edkolev/promptline.vim'
 Plug 'jreybert/vimagit'
 Plug 'chrisbra/csv.vim'
-Plug 'edkolev/tmuxline.vim'
 call plug#end()
 
 let g:wakatime_PythonBinary = '/usr/bin/python3'  " (Default: 'python')
